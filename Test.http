@@ -1,0 +1,1 @@
+POST http://localhost:8080/api/workouts/start?userId=1&workoutPlanId=1

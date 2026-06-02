@@ -3,6 +3,8 @@ package com.GymWebApp.backend.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,8 +23,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    private int height;
+    private Integer height;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<WorkoutPlan> workoutPlans;
+    private List<WorkoutPlan> workoutPlans = new ArrayList<>();
 }

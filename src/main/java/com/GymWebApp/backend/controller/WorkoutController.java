@@ -37,7 +37,6 @@ public class WorkoutController {
 
     @GetMapping("/history")
     public List<WorkoutHistoryDTO> getHistory(@RequestParam Long userId) {
-
         return workoutService.getWorkoutHistory(userId);
     }
 

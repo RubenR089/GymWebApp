@@ -9,3 +9,12 @@ POST http://localhost:8080/api/workouts/end?sessionId=1
 
 ### 4. Schritt: Wir holen uns die gesamte History für den User 1
 GET http://localhost:8080/api/workouts/history?userId=1
+
+### 5. Schritt: Einen brandneuen User registrieren
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "username": "GymBro",
+  "password": "superSafePassword123"
+}

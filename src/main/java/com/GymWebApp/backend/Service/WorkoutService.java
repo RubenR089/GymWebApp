@@ -1,5 +1,6 @@
 package com.GymWebApp.backend.Service;
 
+import com.GymWebApp.backend.dto.UserRegisterDTO;
 import com.GymWebApp.backend.dto.WorkoutHistoryDTO;
 import com.GymWebApp.backend.dto.WorkoutSessionResponseDTO;
 import com.GymWebApp.backend.dto.WorkoutSetResponseDTO;

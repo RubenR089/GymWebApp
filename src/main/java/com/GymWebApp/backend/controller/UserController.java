@@ -22,4 +22,9 @@ public class UserController {
         return userService.registerUser(dto);
     }
 
+    @PostMapping("/login")
+    public boolean userLogIn(@RequestBody UserRegisterDTO loginDTO) {
+        return userService.userLogIn(loginDTO);
+    }
+
 }

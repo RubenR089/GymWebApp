@@ -1,20 +1,26 @@
-### 1. Schritt: Wir gehen ins Gym und starten das Workout
-POST http://localhost:8080/api/workouts/start?userId=1&workoutPlanId=1
-
-### 2. Schritt: Wir ballern den ersten Satz Bankdrücken (Nutze die Session-ID 1)
-POST http://localhost:8080/api/workouts/add-set?sessionId=1&exerciseId=1&weight=80.0&reps=10
-
-### 3. Schritt: Wir sind fertig und beenden das Workout offiziell
-POST http://localhost:8080/api/workouts/end?sessionId=1
-
-### 4. Schritt: Wir holen uns die gesamte History für den User 1
-GET http://localhost:8080/api/workouts/history?userId=1
-
-### 5. Schritt: Einen brandneuen User registrieren
+### 1. Registrierung: Erstellt den User und hasht das Passwort
 POST http://localhost:8080/api/users/register
 Content-Type: application/json
 
 {
-  "username": "GymBro",
-  "password": "superSafePassword123"
+  "username": "CryptoGainz",
+  "password": "meinGeheimesPasswort123"
+}
+
+### 2. Login-Test: Sollte "true" zurückgeben
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "username": "CryptoGainz",
+  "password": "meinGeheimesPasswort123"
+}
+
+### 3. Login-Test mit falschem Passwort: Sollte "false" zurückgeben
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "username": "CryptoGainz",
+  "password": "falschesPasswort"
 }

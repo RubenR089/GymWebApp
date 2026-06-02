@@ -1,5 +1,6 @@
 package com.GymWebApp.backend.Service;
 
+import com.GymWebApp.backend.dto.WorkoutHistoryDTO;
 import com.GymWebApp.backend.dto.WorkoutSessionResponseDTO;
 import com.GymWebApp.backend.dto.WorkoutSetResponseDTO;
 import com.GymWebApp.backend.entity.WorkoutPlan;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.GymWebApp.backend.entity.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +31,7 @@ public class WorkoutService {
         this.workoutSetRepository = workoutSetRepository;
     }
 
-    public WorkoutSessionResponseDTO startNewSession(Long userId, Long workoutPlanId) {
+    public WorkoutSessionResponseDTO startNewSession(Long workoutPlanId) {
 
         WorkoutPlan p = planRepository.findById(workoutPlanId).orElseThrow(() -> new IllegalArgumentException("Trainingsplan mit ID " + workoutPlanId + " nicht in der DB gefunden"));
 
@@ -102,4 +104,24 @@ public class WorkoutService {
 
         return dto;
     }
+
+    public List<WorkoutHistoryDTO> getWorkoutHistory(Long userId) {
+
+        List<WorkoutSession> sessions = sessionRepository.findByWorkoutPlanUserId(userId);
+        List<WorkoutHistoryDTO> history = new ArrayList<>();
+
+        for(WorkoutSession session : sessions){
+
+            WorkoutHistoryDTO dto = new WorkoutHistoryDTO();
+
+            dto.setStartTime(session.getStartTime());
+            dto.setEndTime(session.getEndTime());
+            dto.setPlanName(session.getWorkoutPlan().getName());
+            dto.setSessionId(session.getId());
+
+            history.add(dto);
+        }
+        return history;
+    }
+
 }

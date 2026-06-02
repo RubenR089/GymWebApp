@@ -6,3 +6,6 @@ POST http://localhost:8080/api/workouts/add-set?sessionId=1&exerciseId=1&weight=
 
 ### 3. Schritt: Wir sind fertig und beenden das Workout offiziell
 POST http://localhost:8080/api/workouts/end?sessionId=1
+
+### 4. Schritt: Wir holen uns die gesamte History für den User 1
+GET http://localhost:8080/api/workouts/history?userId=1

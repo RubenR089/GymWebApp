@@ -3,6 +3,8 @@ package com.GymWebApp.backend.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,5 +26,9 @@ public class WorkoutLog {
     private Exercise exercise;
 
     @OneToMany(mappedBy = "workoutLog", cascade = CascadeType.ALL)
-    private List<WorkoutSet> sets;
+    private List<WorkoutSet> sets = new ArrayList<WorkoutSet>();
+
+    public void addWorkoutSet(WorkoutSet workoutSet) {
+        sets.add(workoutSet);
+    }
 }

@@ -1,1 +1,5 @@
+### 1. Schritt: Wir starten die Session (Generiert Session-ID: 1)
 POST http://localhost:8080/api/workouts/start?userId=1&workoutPlanId=1
+
+### 2. Schritt: Wir tragen den ersten Satz Bankdrücken für diese Session ein
+POST http://localhost:8080/api/workouts/add-set?sessionId=1&exerciseId=1&weight=80.0&reps=10

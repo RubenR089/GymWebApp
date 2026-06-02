@@ -29,4 +29,10 @@ public class WorkoutController {
     public WorkoutSetResponseDTO workoutSetRespone(@RequestParam Long sessionId, @RequestParam Long exerciseId, @RequestParam double weight, @RequestParam int reps) {
         return workoutService.addSetToWorkout(sessionId, exerciseId, weight, reps);
     }
+
+    @PostMapping("/end")
+    public WorkoutSessionResponseDTO endSession(@RequestParam Long sessionId) {
+        return workoutService.endWorkoutSession(sessionId);
+    }
+
 }

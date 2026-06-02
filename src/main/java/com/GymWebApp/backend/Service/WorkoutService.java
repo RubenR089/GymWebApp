@@ -86,4 +86,20 @@ public class WorkoutService {
         return dto;
     }
 
+    public WorkoutSessionResponseDTO endWorkoutSession(Long sessionId) {
+
+        WorkoutSession session = sessionRepository.findById(sessionId).orElseThrow();
+
+        session.setEndTime(LocalDateTime.now());
+
+        sessionRepository.save(session);
+
+        WorkoutSessionResponseDTO dto = new WorkoutSessionResponseDTO();
+        dto.setId(session.getId());
+        dto.setEndTime(session.getEndTime());
+        dto.setPlanName(session.getWorkoutPlan().getName());
+        dto.setStartTime(session.getStartTime());
+
+        return dto;
+    }
 }

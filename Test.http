@@ -1,26 +1,5 @@
-### 1. Registrierung: Erstellt den User und hasht das Passwort
-POST http://localhost:8080/api/users/register
-Content-Type: application/json
+### Schritt 1: Eine Session ordnungsgemäß STARTEN
+POST http://localhost:8080/api/workouts/start?workoutPlanId=1
 
-{
-  "username": "CryptoGainz",
-  "password": "meinGeheimesPasswort123"
-}
-
-### 2. Login-Test: Sollte "true" zurückgeben
-POST http://localhost:8080/api/users/login
-Content-Type: application/json
-
-{
-  "username": "CryptoGainz",
-  "password": "meinGeheimesPasswort123"
-}
-
-### 3. Login-Test mit falschem Passwort: Sollte "false" zurückgeben
-POST http://localhost:8080/api/users/login
-Content-Type: application/json
-
-{
-  "username": "CryptoGainz",
-  "password": "falschesPasswort"
-}
+### Schritt 2: DIREKT NOCHMAL versuchen, eine Session zu starten (ohne die erste zu beenden!)
+POST http://localhost:8080/api/workouts/start?workoutPlanId=1

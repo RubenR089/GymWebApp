@@ -17,4 +17,6 @@ public class WorkoutSessionResponseDTO {
 
     private String planName;
 
+    private Long timePassed;
+
 }

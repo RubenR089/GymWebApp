@@ -1,14 +1,14 @@
 package com.GymWebApp.backend.dto;
 
-import com.GymWebApp.backend.entity.WorkoutPlan;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
-
 public class WorkoutHistoryDTO {
 
     private Long sessionId;
@@ -18,5 +18,7 @@ public class WorkoutHistoryDTO {
     private LocalDateTime startTime;
 
     private LocalDateTime endTime;
+
+    private List<ExerciseHistoryDTO> exercises = new ArrayList<>();
 
 }

@@ -7,7 +7,13 @@ import lombok.Setter;
 @Setter
 public class WorkoutSetResponseDTO {
     private Long id;
+
     private int repetitions;
+
     private double weight;
+
     private Long workoutLogId;
+
+    private int setNumber;
+
 }

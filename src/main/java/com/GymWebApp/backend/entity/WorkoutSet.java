@@ -1,5 +1,6 @@
 package com.GymWebApp.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +16,7 @@ public class WorkoutSet {
     private Long id;
 
     @Column(nullable = false)
-    private int setNumber;
+    private int setNumber = 0;
 
     @Column(nullable = false)
     private double weight;
@@ -24,6 +25,8 @@ public class WorkoutSet {
     private int repetitions;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "workout_log_id", nullable = false)
     private WorkoutLog workoutLog;
+
 }

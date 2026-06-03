@@ -40,14 +40,24 @@ public class BackendApplication {
             Exercise exercise = new Exercise();
             exercise.setName("Bankdrücken");
             exercise.setDescription("Flachbank mit der Langhantel");
-            exercise.setWorkoutPlan(plan); // Das verhindert die PropertyValueException!
+            exercise.setWorkoutPlan(plan);
             exerciseRepo.save(exercise);
 
+            // DER TRICK: Absoluten Pfad der index.html ermitteln (wenn sie im static-Ordner liegt)
+            // Falls sie woanders liegt, kannst du den String unten auch hart codieren
+            String frontendUrl = "file:///" + System.getProperty("user.dir").replace("\\", "/")
+                    + "/src/main/resources/static/index.html";
+
             System.out.println("\n==================================================================");
-            System.out.println(">>> TESTDATEN ERFOLGREICH ANGELEGT!");
-            System.out.println(">>> User-ID: " + user.getId() + " (" + user.getUsername() + ")");
-            System.out.println(">>> Plan-ID: " + plan.getId() + " (" + plan.getName() + ")");
-            System.out.println(">>> Exercise-ID: " + exercise.getId() + " (" + exercise.getName() + ")");
+            System.out.println("🚀 GYM-WEBAPP BACKEND ERFOLGREICH GESTARTET!");
+            System.out.println("==================================================================");
+            System.out.println(">>> Test-Daten in der H2-Datenbank generiert:");
+            System.out.println("    • User-ID:     " + user.getId() + " [" + user.getUsername() + "]");
+            System.out.println("    • Plan-ID:     " + plan.getId() + " [" + plan.getName() + "]");
+            System.out.println("    • Exercise-ID: " + exercise.getId() + " [" + exercise.getName() + "]");
+            System.out.println("------------------------------------------------------------------");
+            System.out.println("👉 ÖFFNE DAS FRONTEND PER KLICK / DOPPELKLICK IN INTELLIJ:");
+            System.out.println("   " + frontendUrl);
             System.out.println("==================================================================\n");
         };
     }

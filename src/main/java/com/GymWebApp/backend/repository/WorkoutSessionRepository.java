@@ -7,4 +7,6 @@ import java.util.List;
 public interface WorkoutSessionRepository extends JpaRepository<WorkoutSession, Long> {
 
     List<WorkoutSession> findByWorkoutPlanUserId(Long userId);
+
+    boolean existsByWorkoutPlanUserIdAndEndTimeIsNull(Long userId);
 }

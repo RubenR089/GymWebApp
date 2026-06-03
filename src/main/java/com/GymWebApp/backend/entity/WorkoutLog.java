@@ -27,8 +27,4 @@ public class WorkoutLog {
 
     @OneToMany(mappedBy = "workoutLog", cascade = CascadeType.ALL)
     private List<WorkoutSet> sets = new ArrayList<WorkoutSet>();
-
-    public void addWorkoutSet(WorkoutSet workoutSet) {
-        sets.add(workoutSet);
-    }
 }

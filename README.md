@@ -1,0 +1,3 @@
+- GymTrackerWebApp die auf meinem Raspberry Pi läuft
+- Java Code zum Großteil selber geschrieben
+- HTML und JavaScript von Gemini erstellt(Ich kann beides nicht)
